@@ -1,0 +1,11 @@
+td {
+    width: 100px;
+    height: 100px;
+    background-color: lightslategrey;
+    text-align: center;
+}
+
+.container {
+    text-align: -webkit-center;
+    margin-top: 10%;
+}
