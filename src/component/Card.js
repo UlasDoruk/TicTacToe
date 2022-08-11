@@ -7,6 +7,10 @@ const Card = () => {
     const [cell,setCell] = useState(Array(9).fill(""))
 
     const handleClikc = (num)=>{
+        if(cell[num] !== ""){
+            alert("Already Clicked !")
+            return
+        }
         let square = [...cell]
         if(turn === "X"){
             square[num] = "X"
@@ -27,19 +31,19 @@ const Card = () => {
           Turn of : {turn}
           <tbody>
             <tr>
+              <Fill num={0} />
               <Fill num={1} />
               <Fill num={2} />
-              <Fill num={3} />
             </tr>
             <tr>
+              <Fill num={3} />
               <Fill num={4} />
               <Fill num={5} />
-              <Fill num={6} />
             </tr>
             <tr>
+              <Fill num={6} />
               <Fill num={7} />
               <Fill num={8} />
-              <Fill num={9} />
             </tr>
           </tbody>
         </table>
