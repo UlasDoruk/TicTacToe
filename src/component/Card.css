@@ -1,9 +1,10 @@
-td {
+.btn.td {
     width: 100px;
     height: 100px;
     background-color: lightslategrey;
-    text-align: center;
-    border-radius: 5px;
+    text-align: -webkit;
+    padding: 30px;
+    margin: 2px;
 }
 
 .container {
@@ -12,12 +13,9 @@ td {
 }
 
 button.btn {
-    width: 80px;
-    height: 40px;
-    border-radius: 6px;
-    color: black;
-    background-color: red;
-    border-block-style: inherit;
-    border-color: red;
-    margin: 30px;
+    margin: 20px;
+}
+
+.winner{
+    margin: 10px;
 }
