@@ -7,7 +7,9 @@ const Card = () => {
     const [cell,setCell] = useState(Array(9).fill(""))
     const [winner,setWinner] = useState("")
 
+    // Kazananı bildirecek fonksiyon
     const checkWinner = (square)=>{
+      // Kazanamk için gereken varyasyonlar 
         const combos = {
             across :[
                 [0,1,2],
@@ -24,36 +26,50 @@ const Card = () => {
                 [2,4,6],
             ]}
             for (let i in combos){
-                combos[i].forEach(element => {
-                    if(square[element[0]]===""|| square[element[1]]===""|| square[element[2]]===""){
-                        //do nothing 
-                    }else if (square[element[0]]=== square[element[1]] && square[element[1]]=== square[element[2]]){
-                        setWinner(square[element[0]]);
-                    }
-                });
+              // Combos objesinin içindeki acroos, down ve diagonal array'lerine ulaşıyoruz
+              combos[i].forEach((element) => {
+                // Arraylerin içindeki 0. , 1.  ve 2. elemanlara ulaşıyoruz ve onları square'e gönderiyoruz
+                if (
+                  // Eğer arraylerin içindeki herhangi bir elemana bir atama yapılmamış ise  App bir şey yapmıyor
+                  square[element[0]] === "" ||
+                  square[element[1]] === "" ||
+                  square[element[2]] === ""
+                ) {
+                } else if (
+                  // Eğer array'in ilk elemanı 1. ve 2. elemana eşitse setWinner ile kazananı belirtiyoruz
+                  square[element[0]] === square[element[1]] &&
+                  square[element[1]] === square[element[2]]
+                ) {
+                  setWinner(square[element[0]]);
+                }
+              });
             }
         }
 
 
 
     const handleClikc = (num)=>{
-        if(cell[num] !== ""){
-            alert("Already Clicked !")
-            return
-        }
-        let square = [...cell]
-        if(turn === "X"){
-            square[num] = "X"
-            setTurn("O")
-        }else{
-            square[num] = "O"
-            setTurn("X")
-        }
-        checkWinner(square)
-        setCell(square);
+      // Eğer hücrelerden biri doluysa bir daha üzerine tıklama yapmıyoruz. (Bunu return ile sağladık)
+      if (cell[num] !== "") {
+        alert("Already Clicked !");
+        return;
+      }
+      //
+      let square = [...cell];
+      // Turun kimde olduğu ve turun sahibinin tıklayacağı hücreye ne yazılacğını belirtiyoruz
+      if (turn === "X") {
+        square[num] = "X";
+        setTurn("O");
+      } else {
+        square[num] = "O";
+        setTurn("X");
+      }
+      checkWinner(square);
+      setCell(square);
     }
 
     const handleReset = ()=>{
+      // Play Again butonuna basınca kazananı ve hücrelerin içini sıfırlıyoruz
         setWinner(null)
         setCell(Array(9).fill(""))
     }
@@ -67,6 +83,7 @@ const Card = () => {
         {<h4>Turn : {turn}</h4>}
         <tbody>
           <tr>
+            {/* Numara vermemizin sebebi her hücreye ayrı bir kimlik kazandırmak */}
             <Fill num={0} />
             <Fill num={1} />
             <Fill num={2} />
