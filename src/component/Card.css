@@ -10,3 +10,14 @@ td {
     text-align: -webkit-center;
     margin-top: 10%;
 }
+
+button.btn {
+    width: 80px;
+    height: 40px;
+    border-radius: 6px;
+    color: black;
+    background-color: red;
+    border-block-style: inherit;
+    border-color: red;
+    margin: 30px;
+}
