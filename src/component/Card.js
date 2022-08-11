@@ -5,7 +5,7 @@ const Card = () => {
 
     const [turn,setTurn] = useState("X")
     const [cell,setCell] = useState(Array(9).fill(""))
-    const [winner,setWinner] = useState()
+    const [winner,setWinner] = useState("")
 
     const checkWinner = (square)=>{
         const combos = {
@@ -66,7 +66,7 @@ const Card = () => {
       <table>
         {<h4>Turn : {turn}</h4>}
         <tbody>
-          <tr >
+          <tr>
             <Fill num={0} />
             <Fill num={1} />
             <Fill num={2} />
@@ -83,8 +83,10 @@ const Card = () => {
           </tr>
         </tbody>
       </table>
-      {winner && <h2 className='winner'>Winner is : {winner}</h2>}
-      <button className='btn btn-danger' onClick={() => handleReset()}>Play again</button>
+      {winner && <h2 className="winner">Winner is : {winner}</h2>}
+      <button className="btn btn-danger" onClick={() => handleReset()}>
+        Play again
+      </button>
     </div>
   );
 }
