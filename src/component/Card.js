@@ -10,7 +10,7 @@ const Card = () => {
 
     // Kazananı bildirecek fonksiyon
     const checkWinner = (square)=>{
-      // Kazanamk için gereken varyasyonlar 
+      // Kazanmak için gereken varyasyonlar 
         const combos = {
             across :[
                 [0,1,2],
@@ -41,8 +41,8 @@ const Card = () => {
                   square[element[0]] === square[element[1]] &&
                   square[element[1]] === square[element[2]]
                 ) {
-                  setWinner(square[element[0]]);
-                }
+                  setWinner(square[element[0]])
+                } 
               });
             }
         }
@@ -80,7 +80,7 @@ const Card = () => {
     }
   return (
     <div className="container">
-      <Header/>
+      <Header />
       <table>
         {<h4>Turn : {turn}</h4>}
         <tbody>
