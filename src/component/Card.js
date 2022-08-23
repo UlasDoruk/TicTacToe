@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./Card.css"
+import Header from "./Header"
 
 const Card = () => {
 
@@ -79,6 +80,7 @@ const Card = () => {
     }
   return (
     <div className="container">
+      <Header/>
       <table>
         {<h4>Turn : {turn}</h4>}
         <tbody>
